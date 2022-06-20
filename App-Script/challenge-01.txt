@@ -1,0 +1,27 @@
+Nous pouvons premièrement observer que notre fichier .c est soumis au SUID, il nous est donc impossible
+de le modifier.
+
+Afin de pouvoir exécuter 'cat' à la place de 'ls' nous allons devoir le copier dans le dossier /tmp.
+
+Le dossier /tmp est un dossier ouvert à tout type de users nous permettant donc
+de créer fichiers et dossiers à l'interieur.
+
+Step 1 : Checker si l'executable 'cp' est soumis au SUID avec cette commande =>
+         - CMD : find / -perm -u=s -type f 2>/dev/null
+
+Step 2 : Copier le /bin/cat au sein d'un nouveau dossier que nous aurons créer au préalable dans
+         le dossier /tmp. Exemple : /tmp/ch01
+
+Step 3 : Renommer notre executable copier dans notre dossier /tmp/ch01.
+         - CMD : mv cat ls
+
+Step 4 : Modifier notre PATH afin de berner notre systeme en lui faisant croire que le vrai
+         executable de ls est dans notre dossier /tmp/ch01 et non pas dans /bin.
+
+         - CMD : export PATH=/tmp/ch01:$PATH
+
+Step 5 : C'est fini ! Maintenant, lorsque nous voudrons utiliser 'ls' c'est la fonction 'cat' qui s'executera (Vous pouvez tester !).
+         
+         Nous pouvons donc maintenant exécuter le binaire du challenge, et le mot de passe devrait s'afficher.
+         Pourquoi ? Car le fichier ch01.c exécute 'system('ls /.passwd')', et comme 'ls' est maintenant remplacé
+         par 'cat', le contenue de .passwd s'affichera.
