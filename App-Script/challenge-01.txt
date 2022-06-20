@@ -28,4 +28,3 @@ Step 5 : C'est fini ! Maintenant, lorsque nous voudrons utiliser 'ls' c'est la f
          
          
 En apprendre plus sur le SUID :     - https://fr.linuxteaching.com/article/what_is_sticky_bit_suid_and_sgid_in_linux#what_is_suid_and_sgid_in_linux
-                                    - https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/
