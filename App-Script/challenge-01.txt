@@ -25,3 +25,6 @@ Step 5 : C'est fini ! Maintenant, lorsque nous voudrons utiliser 'ls' c'est la f
          Nous pouvons donc maintenant exécuter le binaire du challenge, et le mot de passe devrait s'afficher.
          Pourquoi ? Car le fichier ch01.c exécute 'system('ls /.passwd')', et comme 'ls' est maintenant remplacé
          par 'cat', le contenue de .passwd s'affichera.
+         
+         
+En apprendre plus sur le SUID : https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/
